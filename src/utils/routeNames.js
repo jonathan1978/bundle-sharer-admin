@@ -1,0 +1,21 @@
+const baseRoute = `${process.env.PUBLIC_URL}/`;
+export const baseApi = 'http://10.233.217.73:8090/';
+
+export const LOGIN_ROUTE = baseRoute;
+export const DASHBOARD_ROUTE = baseRoute + 'dashboard';
+export const FORGOT_PASSWORD_ROUTE = baseRoute + 'forgot-password';
+export const SIGNUP_ROUTE = baseRoute + 'sign-up';
+export const ACTIVATE_ACCOUNT_ROUTE = baseRoute + 'activate-account';
+export const PROFILE_ROUTE = baseRoute + 'profile';
+export const BILLING_ACCOUNTS_ROUTE = baseRoute + 'billing-account';
+export const BILLING_DETAILS_ROUTE = baseRoute + 'billing-dashboard/:account';
+export const BILLING_CATEGORIES_ROUTE = baseRoute + 'categories/:account';
+export const COMMUNITY_GROUP_ROUTE = baseRoute + 'community-group';
+export const SUBSCRIBER_GROUP_ROUTE = baseRoute + 'subscriber-group';
+export const IOT_ROUTE = baseRoute + 'iot';
+export const DEPARTMENT_ROUTE = baseRoute + 'departments';
+export const RANKS_ROUTE = baseRoute + 'ranks';
+export const SUBSCRIBERS_ROUTE = baseRoute + 'subscribers';
+export const OFFERINGS_ROUTE = baseRoute + 'offerings';
+export const PRIMARY_SUBSCRIBERS_ROUTE = baseRoute + 'primary-subscribers';
+export const CATEGORIES_ROUTE = baseRoute + 'categories';
