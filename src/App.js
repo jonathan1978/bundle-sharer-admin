@@ -12,69 +12,69 @@ import HorizontalLayout from "./components/HorizontalLayout/";
 import NonAuthLayout from "./components/NonAuthLayout";
 
 // Import scss
-import "./assets/scss/theme.scss";
+// import "./assets/scss/theme.scss";
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {  };
-		this.getLayout = this.getLayout.bind(this);
-	}
- 
- 	/**
-	 * Returns the layout
-	 */
-	getLayout = () => {
-		let layoutCls = VerticalLayout;
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.getLayout = this.getLayout.bind(this);
+  }
 
-		switch (this.props.layout.layoutType) {
-			case "horizontal":
-				layoutCls = HorizontalLayout;
-				break;
-			default:
-				layoutCls = VerticalLayout;
-				break;
-		}
-		return layoutCls;
-	};
+  /**
+   * Returns the layout
+   */
+  getLayout = () => {
+    let layoutCls = VerticalLayout;
 
-	render() {
-		const Layout = this.getLayout();
+    switch (this.props.layout.layoutType) {
+      case "horizontal":
+        layoutCls = HorizontalLayout;
+        break;
+      default:
+        layoutCls = VerticalLayout;
+        break;
+    }
+    return layoutCls;
+  };
 
-		return (
-			<React.Fragment>
-				<Router>
-					<Switch>
-						{publicRoutes.map((route, idx) => (
-							<AppRoute
-								path={route.path}
-								layout={NonAuthLayout}
-								component={route.component}
-								key={idx}
-								isAuthProtected={false}
-							/>
-						))}
+  render() {
+    const Layout = this.getLayout();
 
-						{authProtectedRoutes.map((route, idx) => (
-							<AppRoute
-								path={route.path}
-								layout={Layout}
-								component={route.component}
-								key={idx}
-								isAuthProtected={true}
-							/>
-						))}
-					</Switch>
-				</Router>
-			</React.Fragment>
-		);
-	}
+    return (
+      <React.Fragment>
+        <Router>
+          <Switch>
+            {publicRoutes.map((route, idx) => (
+              <AppRoute
+                path={route.path}
+                layout={NonAuthLayout}
+                component={route.component}
+                key={idx}
+                isAuthProtected={false}
+              />
+            ))}
+
+            {authProtectedRoutes.map((route, idx) => (
+              <AppRoute
+                path={route.path}
+                layout={Layout}
+                component={route.component}
+                key={idx}
+                isAuthProtected={true}
+              />
+            ))}
+          </Switch>
+        </Router>
+      </React.Fragment>
+    );
+  }
 }
 
-const mapStateToProps = state => {
-	return {
-		layout: state.Layout
-	};
+const mapStateToProps = (state) => {
+  return {
+    layout: state.Layout,
+  };
 };
 
 export default connect(mapStateToProps, null)(App);

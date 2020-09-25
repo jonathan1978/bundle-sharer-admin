@@ -15,7 +15,7 @@ import logo from "../../assets/images/vodafone_logo.png";
 import { toggleRightSidebar } from "../../store/actions";
 
 //i18n
-import { withNamespaces } from 'react-i18next';
+import { withNamespaces } from "react-i18next";
 
 class Header extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Header extends Component {
 
   toggleSearch = () => {
     this.setState({ isSearch: !this.state.isSearch });
-  }
+  };
   /**
    * Toggle sidebar
    */
@@ -81,22 +81,22 @@ class Header extends Component {
                 <Link to="/" className="logo logo-dark">
                   <span className="logo-sm">
                     <img src={logo} alt="" height="22" />
-                    <span style={{color: "white"}}>Bundle Sharer Admin</span>
+                    <span style={{ color: "white" }}>Bundle Sharer Admin</span>
                   </span>
                   <span className="logo-lg">
                     <img src={logo} alt="" height="17" />
-                    <span style={{color: "white"}}>Bundle Sharer Admin</span>
+                    <span style={{ color: "white" }}>Bundle Sharer Admin</span>
                   </span>
                 </Link>
 
                 <Link to="/" className="logo logo-light">
                   <span className="logo-sm">
                     <img src={logo} alt="" height="22" />
-                    <span style={{color: "white"}}>Bundle Sharer Admin</span>
+                    <span style={{ color: "white" }}>Bundle Sharer Admin</span>
                   </span>
                   <span className="logo-lg">
                     <img src={logo} alt="" height="19" />
-                    <span style={{color: "white"}}>Bundle Sharer Admin</span>
+                    <span style={{ color: "white" }}>Bundle Sharer Admin</span>
                   </span>
                 </Link>
               </div>
@@ -106,46 +106,51 @@ class Header extends Component {
                 className="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
                 data-toggle="collapse"
                 onClick={this.toggleMenu}
-                data-target="#topnav-menu-content">
+                data-target="#topnav-menu-content"
+              >
                 <i className="fa fa-fw fa-bars"></i>
               </button>
 
               <form className="app-search d-none d-lg-block">
                 <div className="position-relative">
-                  <input type="text" className="form-control" placeholder={this.props.t('Search') + "..."} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={this.props.t("Search") + "..."}
+                  />
                   <span className="bx bx-search-alt"></span>
                 </div>
               </form>
               <div className="dropdown d-none d-lg-inline-block ml-1">
-              <Link to='/dashboard' >
-                <button
-                  type="button"
-                  className="btn header-item noti-icon waves-effect"
-                  data-toggle="fullscreen"
-                >
-                   Home
-                </button>
+                <Link to="/dashboard">
+                  <button
+                    type="button"
+                    className="btn header-item noti-icon waves-effect"
+                    data-toggle="fullscreen"
+                  >
+                    Home
+                  </button>
                 </Link>
               </div>
               <div className="dropdown d-none d-lg-inline-block ml-1">
-              <Link to='/new-user' >
-                <button
-                  type="button"
-                  className="btn header-item noti-icon waves-effect"
-                  data-toggle="fullscreen"
-                >
-                   Add Customer
-                </button>
+                <Link to="/new-user">
+                  <button
+                    type="button"
+                    className="btn header-item noti-icon waves-effect"
+                    data-toggle="fullscreen"
+                  >
+                    Add Customer
+                  </button>
                 </Link>
               </div>
               <div className="dropdown d-none d-lg-inline-block ml-1">
-              <Link to='/all-requests' >
-                <button
-                  type="button"
-                  className="btn header-item noti-icon waves-effect"
-                >
-                   All Requests
-                </button>
+                <Link to="/all-requests">
+                  <button
+                    type="button"
+                    className="btn header-item noti-icon waves-effect"
+                  >
+                    All Requests
+                  </button>
                 </Link>
               </div>
               {/* <div className="dropdown d-none d-lg-inline-block ml-1">
@@ -168,7 +173,6 @@ class Header extends Component {
                 </button>
                 </Link>
               </div> */}
-
             </div>
 
             <div className="d-flex">
@@ -177,11 +181,18 @@ class Header extends Component {
                   type="button"
                   className="btn header-item noti-icon waves-effect"
                   id="page-header-search-dropdown"
-                  onClick={() => { this.setState({ isSearch: !this.state.isSearch }); }}>
+                  onClick={() => {
+                    this.setState({ isSearch: !this.state.isSearch });
+                  }}
+                >
                   <i className="mdi mdi-magnify"></i>
                 </button>
                 <div
-                  className={this.state.isSearch ? "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 show" : "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"}
+                  className={
+                    this.state.isSearch
+                      ? "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 show"
+                      : "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                  }
                   aria-labelledby="page-header-search-dropdown"
                 >
                   <form className="p-3">
@@ -190,7 +201,7 @@ class Header extends Component {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder={this.props.t('Search') + "..."}
+                          placeholder={this.props.t("Search") + "..."}
                           aria-label="Recipient's username"
                         />
                         <div className="input-group-append">
@@ -205,7 +216,6 @@ class Header extends Component {
               </div>
 
               <ProfileMenu />
-
             </div>
           </div>
         </header>
@@ -214,9 +224,11 @@ class Header extends Component {
   }
 }
 
-const mapStatetoProps = state => {
+const mapStatetoProps = (state) => {
   const { layoutType } = state.Layout;
   return { layoutType };
 };
 
-export default connect(mapStatetoProps, { toggleRightSidebar })(withNamespaces()(Header));
+export default connect(mapStatetoProps, { toggleRightSidebar })(
+  withNamespaces()(Header)
+);
